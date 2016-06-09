@@ -1,0 +1,129 @@
+$container-width: 245px;
+$color-primary: #c61e21;
+$color-header-text: #fff;
+$color-bg-highlight: #eee;
+
+.bec-container {
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  width: $container-width;
+
+  header {
+    background-color: $color-primary;
+    box-sizing: border-box;
+    color: $color-header-text;
+    text-align: center;
+
+    h1 {
+      box-sizing: border-box;
+      display: inline-block;
+      font-size: 14px;
+      margin: 0;
+      padding-bottom: 4px;
+      padding-top: 4px;
+      text-align: center;
+      text-transform: uppercase;
+      width: $container-width * 0.7;
+    }
+
+    .bec-button-prev,
+    .bec-button-next {
+      box-sizing: border-box;
+      color: $color-header-text;
+      display: inline-block;
+      padding-bottom: 4px;
+      padding-top: 4px;
+      text-decoration: none;
+      transition-delay: 0s;
+      transition-duration: 0.5s;
+      transition-property: background-color;
+      transition-timing-function: ease;
+      width: $container-width * 0.15;
+
+      &:hover,
+      &:hover {
+        background: darken($color-primary, 15%);
+      }
+    }
+  }
+
+  .bec-days-container {
+    text-align: center;
+  }
+
+  .bec-days-header {
+    font-weight: 600;
+  }
+
+  .bec-week {
+    border-bottom: 1px solid lighten($color-bg-highlight, 1%);
+  }
+
+  .bec-days {
+    border-bottom: 4px solid $color-primary;
+  }
+
+  .bec-day, .bec-day-label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: $container-width / 7;
+  }
+
+  .bec-day {
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 4px;
+
+    &:hover {
+      background-color: $color-bg-highlight;
+      border: 1px solid darken($color-bg-highlight, 5%);
+    }
+
+    &.active {
+      border: 1px solid $color-primary;
+    }
+
+    &.current-day {
+      background-color: $color-bg-highlight;
+    }
+
+    &.event {
+      background-color: lighten($color-primary, 50%);
+    }
+  }
+
+  .bec-events {
+    margin-top: 20px;
+  }
+
+  .bec-event {
+    background-color: lighten($color-bg-highlight, 1%);
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    display: none;
+
+    h2 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      margin-top: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    p {
+      margin-bottom: 8px;
+      margin-top: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+}
