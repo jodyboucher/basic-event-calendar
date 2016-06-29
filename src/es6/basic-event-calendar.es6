@@ -95,7 +95,9 @@ function attachDayClickHandler() {
  * @param {int} currentMonth The month currently displayed
  */
 function attachNextMonthClickHandler(classSelector, currentYear, currentMonth) {
-    $('.' + classSelector).on('click', function() {
+    $('.' + classSelector).on('click', function(event) {
+        event.preventDefault();
+
         const nextMonth = dateHelper.getNextMonth(currentYear, currentMonth);
         renderMonth(nextMonth.year, nextMonth.month);
     });
@@ -108,7 +110,9 @@ function attachNextMonthClickHandler(classSelector, currentYear, currentMonth) {
  * @param {int} currentMonth The month currently displayed
  */
 function attachPreviousMonthClickHandler(classSelector, currentYear, currentMonth) {
-    $('.' + classSelector).on('click', function() {
+    $('.' + classSelector).on('click', function(event) {
+        event.preventDefault();
+
         const previousMonth = dateHelper.getPreviousMonth(currentYear, currentMonth);
         renderMonth(previousMonth.year, previousMonth.month);
     });
