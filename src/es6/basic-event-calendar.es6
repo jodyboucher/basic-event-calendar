@@ -209,11 +209,11 @@ function markEventDays(displayYear, displayMonth) {
 function renderBase() {
     const markupHeaderPrevious = `<a class="${settings.classMonthPrevious}" href="#" title="Previous month" role="button">&lsaquo;</a>`;
     const markupHeaderNext = `<a class="${settings.classMonthNext}" href="#" title="Next month" role="button">&rsaquo;</a>`;
-    const markupHeader = `<header>${markupHeaderPrevious}<h1 />${markupHeaderNext}</header>`;
-    const markupDaysHeader = `<div class="${settings.classDaysHeader}" />`;
-    const markupDaysList = `<div class="${settings.classDaysList}"><div class="${settings.classWeek}" data-week="1" /><div class="${settings.classWeek}" data-week="2" /><div class="${settings.classWeek}" data-week="3" /><div class="${settings.classWeek}" data-week="4" /><div class="${settings.classWeek}" data-week="5" /><div class="${settings.classWeek}" data-week="6" /></div>`;
+    const markupHeader = `<header>${markupHeaderPrevious}<h1></h1>${markupHeaderNext}</header>`;
+    const markupDaysHeader = `<div class="${settings.classDaysHeader}"></div>`;
+    const markupDaysList = `<div class="${settings.classDaysList}"><div class="${settings.classWeek}" data-week="1"></div><div class="${settings.classWeek}" data-week="2"></div><div class="${settings.classWeek}" data-week="3"></div><div class="${settings.classWeek}" data-week="4"></div><div class="${settings.classWeek}" data-week="5"></div><div class="${settings.classWeek}" data-week="6"></div></div>`;
     const markupDaysContainer = `<div class="${settings.classDaysContainer}">${markupDaysHeader}${markupDaysList}</div>`;
-    const markupEvents = `<div class="${settings.classEventsList}" />`;
+    const markupEvents = `<div class="${settings.classEventsList}"></div>`;
 
     const markup = `
             <section>
@@ -262,7 +262,7 @@ function renderDaysList(year, month) {
     const firstDayOfMonthOffset = daysInMonth[0].getDay();
     const $firstWeek = $weekRows.filter('[data-week=1]');
     for (let index = 0; index < firstDayOfMonthOffset; index = index + 1) {
-        $firstWeek.append('<div class="' + settings.classDay + '" />');
+        $firstWeek.append('<div class="' + settings.classDay + '" ></div>');
     }
 
     // second, populate the month cells
@@ -285,7 +285,7 @@ function renderDaysList(year, month) {
     const lastDayOfMonthOffset = daysInMonth[daysInMonth.length - 1].getDay();
     const $lastWeek = $weekRows.filter('[data-week=' + weekNumber + ']');
     for (let index = lastDayOfMonthOffset + 1; index <= 6; index = index + 1) {
-        $lastWeek.append('<div class="' + settings.classDay + '" />');
+        $lastWeek.append('<div class="' + settings.classDay + '" ></div>');
     }
 }
 
