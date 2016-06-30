@@ -18,6 +18,7 @@ function show(options) {
         initialYear: currentDate.getFullYear(),
         initialMonth: currentDate.getMonth(),
         eventsUrl: 'events-data.json',
+        eventList: [],
         monthNames: [],
         dayNames: [],
         dayNamesAbbreviated: [],
@@ -65,7 +66,11 @@ function show(options) {
         dateHelper.dayNamesShort = settings.dayNamesShort;
     }
 
-    renderMonth(settings.initialYear, settings.initialMonth);
+    let doFetch = 'yes';
+    if (Array.isArray(settings.eventList) && settings.eventList.length > 0) {
+        doFetch = 'no';
+    }
+    renderMonth(settings.initialYear, settings.initialMonth, doFetch);
 }
 
 /**
@@ -99,7 +104,7 @@ function attachNextMonthClickHandler(classSelector, currentYear, currentMonth) {
         event.preventDefault();
 
         const nextMonth = dateHelper.getNextMonth(currentYear, currentMonth);
-        renderMonth(nextMonth.year, nextMonth.month);
+        renderMonth(nextMonth.year, nextMonth.month, 'yes');
     });
 }
 
@@ -114,7 +119,7 @@ function attachPreviousMonthClickHandler(classSelector, currentYear, currentMont
         event.preventDefault();
 
         const previousMonth = dateHelper.getPreviousMonth(currentYear, currentMonth);
-        renderMonth(previousMonth.year, previousMonth.month);
+        renderMonth(previousMonth.year, previousMonth.month, 'yes');
     });
 }
 
@@ -291,43 +296,56 @@ function renderDaysList(year, month) {
 
 /**
  * Render the events
- * @param {int} year The 4-digit year of the events to render, i.e. 2016
- * @param {int} month The month of the events to render: January = 0, December = 11
+ * @param {Array} events The events to render
  */
-function renderEvents(year, month) {
-    $.ajax({
-        url: settings.eventsUrl,
-        type: 'GET'
-    })
-        .done(function(data) {
-            const events = data.events;
-
-            events.forEach(function(element) {
-                const markup = settings.markupEvent(element);
-                $('.' + settings.classEventsList).append(markup);
-            });
-
-            markEventDays(year, month);
-        })
-        .fail(function() {});
+function renderEvents(events) {
+    events.forEach((element) => {
+        const markup = settings.markupEvent()(element);
+        $('.' + settings.classEventsList).append(markup);
+    });
 }
 
 /**
  * Renders the specified year/month
  * @param {int} year The 4-digit year of the year/month to render, i.e. 2016
  * @param {int} month The month of the year/month to render: January = 0, December = 11
+ * @param {string} fetch Should eventList for month be fetched: 'yes' = fetch eventList
  */
-function renderMonth(year, month) {
+function renderMonth(year, month, fetch) {
     renderBase(settings);
     renderDaysHeader(year, month);
     renderDaysList(year, month);
-    renderEvents(year, month);
 
     markCurrentDay(year, month);
 
     attachPreviousMonthClickHandler(settings.classMonthPrevious, year, month);
     attachNextMonthClickHandler(settings.classMonthNext, year, month);
     attachDayClickHandler();
+
+    const promise = new Promise((resolve) => {
+        if (fetch === 'yes') {
+            $.ajax({
+                url: settings.eventsUrl,
+                data: { year: year, month: month + 1 },
+                type: 'GET',
+                cache: false
+            })
+                .done(function(data) {
+                    settings.eventList = data.events;
+                    resolve();
+                })
+                .fail(function() {
+                    settings.eventList = [];
+                    resolve();
+                });
+        } else {
+            resolve();
+        }
+    });
+    promise.then(() => {
+        renderEvents(settings.eventList);
+        markEventDays(year, month);
+    });
 }
 
 export { show };
