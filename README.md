@@ -1,5 +1,5 @@
-#simple-event-calendar
-simple-event-calendar is a javascript library that provides a very basic lightweight interface for displaying events on a monthly calendar view.
+#basic-event-calendar
+basic-event-calendar is a javascript library that provides a very basic lightweight interface for displaying events on a monthly calendar view.
 
 ##Usage
 ```html
