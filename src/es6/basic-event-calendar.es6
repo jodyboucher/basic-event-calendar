@@ -20,6 +20,7 @@ function show(options) {
         initialYear: currentDate.getFullYear(),
         initialMonth: currentDate.getMonth(),
         eventsUrl: 'events-data.json',
+        extractEvents: (data) => data.data,
         eventList: [],
         monthNames: [],
         dayNames: [],
@@ -340,7 +341,7 @@ function renderMonth(year, month, fetch) {
                 cache: false
             })
                 .done(function(data) {
-                    settings.eventList = data.events;
+                    settings.eventList = settings.extractEvents(data);
                     resolve();
                 })
                 .fail(function() {

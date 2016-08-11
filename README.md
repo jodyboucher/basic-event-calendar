@@ -75,6 +75,13 @@ Value: array of events.
 
 Default value: `[]`
 
+### `extractEvents`
+A function that extracts the events array from the response obtained from `eventsUrl`.
+
+Value: Function
+
+Default: `(data) => return data.data`
+
 ### `monthNames`
 An array of month names.  Allows month names to be specified in an alternative language or to be abbreviated.
 
@@ -192,49 +199,49 @@ The function that renders the header markup for Sunday.
 
 Value: Function
 
-Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexSunday`
+Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexSunday)`
 
 ### `markupDayHeaderMonday`
 The function that renders the header markup for Monday.
 
 Value: Function
 
-Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexMonday`
+Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexMonday)`
 
 ### `markupDayHeaderTuesday`
 The function that renders the header markup for Tuesday.
 
 Value: Function
 
-Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexTuesday`
+Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexTuesday)`
 
 ### `markupDayHeaderWednesday`
 The function that renders the header markup for Wednesday.
 
 Value: Function
 
-Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexWednesday`
+Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexWednesday)`
 
 ### `markupDayHeaderThursday`
 The function that renders the header markup for Thursday.
 
 Value: Function
 
-Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexThursday`
+Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexThursday)`
 
 ### `markupDayHeaderFriday`
 The function that renders the header markup for Friday.
 
 Value: Function
 
-Default value: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexFriday`
+Default value: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexFriday)`
 
 ### `markupDayHeaderSaturday`
 The function that renders the header markup for Saturday.
 
 Value: Function
 
-Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexSaturday`
+Default: `() => getDefaultDayHeaderMarkup(dateHelper.dayIndexSaturday)`
 
 ### `markupEvent`
 The function that renders the markup for each event.
