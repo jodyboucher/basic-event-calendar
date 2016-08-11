@@ -22,9 +22,9 @@
     "url": "https://jodyboucher.com/"
   },
   "license": "MIT",
-  "repository" : {
-    "type" : "git"
-  , "url" : "https://github.com/jodyboucher/basic-event-calendar.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jodyboucher/basic-event-calendar.git"
   },
   "dependencies": {
     "date-helper": "github:jodyboucher/date-helper",
@@ -36,6 +36,7 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.13.2",
     "chai": "^3.5.0",
+    "common-tags": "^1.3.1",
     "css-loader": "^0.23.1",
     "eslint": "^2.11.1",
     "eslint-loader": "^1.3.0",

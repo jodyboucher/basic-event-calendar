@@ -1,5 +1,7 @@
 import * as dateHelper from 'date-helper';
 import $ from 'jquery';
+import html from 'common-tags/lib/html';
+import oneLineTrim from 'common-tags/lib/oneLineTrim';
 
 require('../scss/basic-event-calendar.scss');
 
@@ -78,7 +80,7 @@ function show(options) {
  */
 function attachDayClickHandler() {
     $('.' + settings.classDay)
-        // add 'selected day' styling
+    // add 'selected day' styling
         .on('click', function(event) {
             $('.' + settings.classDay).removeClass('active');
             $(event.target).addClass('active');
@@ -216,14 +218,10 @@ function renderBase() {
     const markupHeaderNext = `<a class="${settings.classMonthNext}" href="#" title="Next month" role="button">&rsaquo;</a>`;
     const markupHeader = `<header>${markupHeaderPrevious}<h1></h1>${markupHeaderNext}</header>`;
     const markupDaysHeader = `<div class="${settings.classDaysHeader}"></div>`;
-    const markupDaysList = `\
-        <div class="${settings.classDaysList}">\
-            <div class="${settings.classWeek}" data-week="1"></div>\
-            <div class="${settings.classWeek}" data-week="2"></div>\
-            <div class="${settings.classWeek}" data-week="3"></div>\
-            <div class="${settings.classWeek}" data-week="4"></div>\
-            <div class="${settings.classWeek}" data-week="5"></div>\
-            <div class="${settings.classWeek}" data-week="6"></div>\
+    const weekNumbers = [1, 2, 3, 4, 5, 6];
+    const markupDaysList = html`
+        <div class="${settings.classDaysList}">
+            ${weekNumbers.map((weekNumber) => `<div class="${settings.classWeek}" data-week="${weekNumber}"></div>`)}
         </div>`;
     const markupDaysContainer = `<div class="${settings.classDaysContainer}">${markupDaysHeader}${markupDaysList}</div>`;
     const markupEvents = `<div class="${settings.classEventsList}"></div>`;
@@ -283,9 +281,9 @@ function renderDaysList(year, month) {
     let dayOfWeek = firstDayOfMonthOffset;
     for (const currentDate of daysInMonth) {
         const dayNumber = currentDate.getDate();
-        const markupDay = `\
-            <div class="${settings.classDay}" data-year="${year}" data-month="${month}" data-day="${dayNumber}">\
-                ${dayNumber}\
+        const markupDay = oneLineTrim`
+            <div class="${settings.classDay}" data-year="${year}" data-month="${month}" data-day="${dayNumber}">
+                ${dayNumber}
             </div>`;
         const $week = $weekRows.filter('[data-week=' + weekNumber + ']');
         $week.append(markupDay);
