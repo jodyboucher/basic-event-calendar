@@ -7,12 +7,13 @@
   margin: auto;
   width: 245px; }
   .bec-container header {
-    background-color: #c61e21;
+    background-color: #fcfcfc;
     box-sizing: border-box;
-    color: #fff;
+    color: #333;
     text-align: center; }
     .bec-container header h1 {
       box-sizing: border-box;
+      color: #333;
       display: inline-block;
       font-size: 14px;
       margin: 0;
@@ -24,8 +25,10 @@
     .bec-container header .bec-button-prev,
     .bec-container header .bec-button-next {
       box-sizing: border-box;
-      color: #fff;
+      color: #333;
       display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
       padding-bottom: 4px;
       padding-top: 4px;
       text-decoration: none;
@@ -37,15 +40,17 @@
       .bec-container header .bec-button-prev:hover, .bec-container header .bec-button-prev:hover,
       .bec-container header .bec-button-next:hover,
       .bec-container header .bec-button-next:hover {
-        background: #841416; }
+        background-color: #eee; }
   .bec-container .bec-days-container {
+    border-bottom: 2px solid #c61e21;
+    border-top: 2px solid #c61e21;
     text-align: center; }
   .bec-container .bec-days-header {
+    background-color: #fcfcfc;
+    border-bottom: 1px solid #f1f1f1;
     font-weight: 600; }
   .bec-container .bec-week {
     border-bottom: 1px solid #f1f1f1; }
-  .bec-container .bec-days {
-    border-bottom: 4px solid #c61e21; }
   .bec-container .bec-day, .bec-container .bec-day-label {
     box-sizing: border-box;
     display: inline-block;
@@ -56,9 +61,9 @@
     padding: 4px; }
     .bec-container .bec-day:hover {
       background-color: #eee;
-      border: 1px solid #e1e1e1; }
+      border: 1px solid #ee8f91; }
     .bec-container .bec-day.active {
-      border: 1px solid #de4448; }
+      border: 1px solid #ee8f91; }
     .bec-container .bec-day.current-day {
       background-color: #eee; }
     .bec-container .bec-day.event {
@@ -68,15 +73,14 @@
   .bec-container .bec-event {
     background-color: #f1f1f1;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: none; }
     .bec-container .bec-event h2 {
       font-size: 13px;
       height: auto;
       line-height: 18px;
-      margin: 0; }
+      margin: 0 0 6px 0; }
     .bec-container .bec-event p {
-      margin-bottom: 8px;
-      margin-top: 8px; }
+      margin: 0; }
     .bec-container .bec-event span {
       font-size: 12px; }

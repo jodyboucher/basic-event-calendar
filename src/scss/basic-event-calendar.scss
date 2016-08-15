@@ -1,8 +1,8 @@
 $container-width: 245px;
 $color-primary: #c61e21;
-$color-header-text: #fff;
+$color-header-bg: #fcfcfc;
+$color-header-text: #333;
 $color-bg-highlight: #eee;
-$color-day-active: #de4448;
 
 .bec-container {
   box-sizing: border-box;
@@ -14,13 +14,14 @@ $color-day-active: #de4448;
   width: $container-width;
 
   header {
-    background-color: $color-primary;
+    background-color: $color-header-bg;
     box-sizing: border-box;
     color: $color-header-text;
     text-align: center;
 
     h1 {
       box-sizing: border-box;
+      color: $color-header-text;
       display: inline-block;
       font-size: 14px;
       margin: 0;
@@ -36,6 +37,8 @@ $color-day-active: #de4448;
       box-sizing: border-box;
       color: $color-header-text;
       display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
       padding-bottom: 4px;
       padding-top: 4px;
       text-decoration: none;
@@ -47,25 +50,25 @@ $color-day-active: #de4448;
 
       &:hover,
       &:hover {
-        background: darken($color-primary, 15%);
+        background-color: $color-bg-highlight;
       }
     }
   }
 
   .bec-days-container {
+    border-bottom: 2px solid $color-primary;
+    border-top: 2px solid $color-primary;
     text-align: center;
   }
 
   .bec-days-header {
+    background-color: $color-header-bg;
+    border-bottom: 1px solid lighten($color-bg-highlight, 1%);
     font-weight: 600;
   }
 
   .bec-week {
     border-bottom: 1px solid lighten($color-bg-highlight, 1%);
-  }
-
-  .bec-days {
-    border-bottom: 4px solid $color-primary;
   }
 
   .bec-day, .bec-day-label {
@@ -81,11 +84,11 @@ $color-day-active: #de4448;
 
     &:hover {
       background-color: $color-bg-highlight;
-      border: 1px solid darken($color-bg-highlight, 5%);
+      border: 1px solid lighten($color-primary, 30%);
     }
 
     &.active {
-      border: 1px solid $color-day-active;
+      border: 1px solid lighten($color-primary, 30%);
     }
 
     &.current-day {
@@ -104,19 +107,18 @@ $color-day-active: #de4448;
   .bec-event {
     background-color: lighten($color-bg-highlight, 1%);
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: none;
 
     h2 {
       font-size: 13px;
       height: auto;
       line-height: 18px;
-      margin: 0;
+      margin: 0 0 6px 0;
     }
 
     p {
-      margin-bottom: 8px;
-      margin-top: 8px;
+      margin: 0;
     }
 
     span {

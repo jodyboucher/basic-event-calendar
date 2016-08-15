@@ -224,13 +224,15 @@ function renderBase() {
         <div class="${settings.classDaysList}">
             ${weekNumbers.map((weekNumber) => `<div class="${settings.classWeek}" data-week="${weekNumber}"></div>`)}
         </div>`;
-    const markupDaysContainer = `<div class="${settings.classDaysContainer}">${markupDaysHeader}${markupDaysList}</div>`;
     const markupEvents = `<div class="${settings.classEventsList}"></div>`;
 
     const markup = `
             <section>
-                ${markupHeader}
-                ${markupDaysContainer}
+                <div class="${settings.classDaysContainer}">
+                    ${markupHeader}
+                    ${markupDaysHeader}
+                    ${markupDaysList}
+                </div>
                 ${markupEvents}
             </section>`;
 
