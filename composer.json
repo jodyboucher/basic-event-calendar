@@ -1,0 +1,17 @@
+{
+  "name": "jodyboucher/basic-event-calendar",
+  "description": "A javascript library providing a basic lightweight interface for displaying events on a monthly calendar view.",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/jodyboucher/basic-event-calendar",
+  "authors": [
+    {
+      "name": "Jody Boucher",
+      "email": "jody@jodyboucher.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/jodyboucher/basic-event-calendar/issues"
+  },
+  "require": {}
+}
